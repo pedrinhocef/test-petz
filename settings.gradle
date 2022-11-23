@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "TestPetz"
 include ':app'
+include ':network'
+include ':navigation'
+include ':cache'
+include ':homecards'
