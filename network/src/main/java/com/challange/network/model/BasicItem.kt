@@ -1,8 +1,8 @@
 package com.challange.network.model
 
-import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class BasicItem(
@@ -60,4 +60,8 @@ data class BasicItem(
 
     @field:SerializedName("attack")
 	val attack: Int? = null
-) : Parcelable
+) : Parcelable {
+    companion object {
+        const val BASIC_ITEM_CACHE_KEY = "BasicItemCache"
+    }
+}
