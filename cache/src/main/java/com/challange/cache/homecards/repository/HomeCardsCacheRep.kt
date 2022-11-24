@@ -5,11 +5,11 @@ import com.challange.network.model.BasicItem
 
 object HomeCardsCacheRep {
 
-    fun addCardsCache(basicItem: BasicItem) {
+    fun addCardsCache(basicItem: List<BasicItem>) {
         ModuleHawk.put(BasicItem.BASIC_ITEM_CACHE_KEY, basicItem)
     }
 
-    fun getCardsFromCache(): BasicItem? = ModuleHawk.get(BasicItem.BASIC_ITEM_CACHE_KEY)
+    fun getCardsFromCache(): List<BasicItem>? = ModuleHawk.get(BasicItem.BASIC_ITEM_CACHE_KEY)
 
     fun deleteCardsCache () {
         if (ModuleHawk.contains(BasicItem.BASIC_ITEM_CACHE_KEY))
