@@ -1,4 +1,4 @@
-## App desenvolvido como desafio para vaga na Petz
+## App desenvolvido para vaga na Petz, e como portfolio técnico
 
 
 # Tecnologias utilizadas
