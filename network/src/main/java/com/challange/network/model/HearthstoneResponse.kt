@@ -1,15 +1,15 @@
 package com.challange.network.model
 
-import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 import com.challange.network.*
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class HearthstoneResponse(
 
     @field:SerializedName("Basic")
-	val basic: List<BasicItem?>? = null,
+	val basic: List<BasicItem> = emptyList(),
 
     @field:SerializedName("Knights of the Frozen Throne")
 	val knightsOfTheFrozenThrone: List<KnightsOfTheFrozenThroneItem?>? = null,

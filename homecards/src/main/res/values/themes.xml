@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.AndroidTest" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/blue_darker</item>
+        <item name="colorPrimaryDark">@color/blue_darker</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor" >@color/dark_blue_grey_three</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

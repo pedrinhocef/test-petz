@@ -9,11 +9,18 @@ import com.challange.network.model.BasicItem
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
-class HeartStoneViewHolder constructor(
-    itemView: View
-) : RecyclerView.ViewHolder(itemView) {
-    private val imageView = itemView.findViewById<ImageView>(R.id.imgMainItemProduct)
-    private val progress = itemView.findViewById<ProgressBar>(R.id.progressImageProduct)
+class HeartStoneViewHolder(
+    itemView: View,
+    private val clickListener: (BasicItem) -> Unit
+) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+
+    private val imageView = itemView.findViewById<ImageView>(R.id.imgItemHearStone)
+    private val progress = itemView.findViewById<ProgressBar>(R.id.progressImageHeartStone)
+    private lateinit var basicItem: BasicItem
+
+    init {
+        itemView.setOnClickListener(this)
+    }
 
     fun bind(basicItem: BasicItem) {
 
@@ -32,5 +39,9 @@ class HeartStoneViewHolder constructor(
                     progress.visibility = View.GONE
                 }
             })
+    }
+
+    override fun onClick(v: View?) {
+        v?.let { clickListener.invoke(basicItem) }
     }
 }
