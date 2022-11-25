@@ -19,3 +19,26 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#### RETROFIT ######################################################################################
+# Retain service method parameters when optimizing.
+-keepclassmembers,allowshrinking,allowobfuscation interface * {
+    @retrofit2.http.* <methods>;
+}
+
+-keep class com.squareup.okhttp.** { *; }
+-keep interface com.squareup.okhttp.** { *; }
+-keep class retrofit.** { *; }
+
+-dontwarn okhttp3.**
+-dontwarn okio.**
+
+# Ignore JSR 305 annotations for embedding nullability information.
+-dontwarn javax.annotation.**
+-dontwarn org.conscrypt.**
+
+-dontwarn com.squareup.okhttp.**
+-dontwarn retrofit.**
+-dontwarn retrofit2.**
+-dontwarn retrofit2.Platform$Java8
+-dontwarn org.springframework.**

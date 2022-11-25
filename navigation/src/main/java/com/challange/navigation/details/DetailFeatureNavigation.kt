@@ -5,12 +5,12 @@ import com.challange.navigation.utils.IntentUtils
 
 object DetailFeatureNavigation {
 
-    private const val HOME_PACKAGE: String = "com.challange.homecards.view.ui"
+    private const val DETAIL_PACKAGE: String = "com.challange.homecards.view.ui"
 
     fun openDetailsFeatureNavigation(context: Context) {
         IntentUtils.openFeatureIntent(
             context,
-            "$HOME_PACKAGE.DetailsActivity"
+            "$DETAIL_PACKAGE.DetailsActivity"
         )
     }
 }

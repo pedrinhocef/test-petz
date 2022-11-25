@@ -1,4 +1,4 @@
-package com.challange.testpetz
+package com.challange.testpetz.application
 
 import android.app.Application
 import com.challange.cache.init.ModuleHawk
