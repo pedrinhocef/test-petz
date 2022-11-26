@@ -19,13 +19,17 @@ class HeartStoneViewHolder(
         itemView.setOnClickListener(this)
     }
 
-    fun bind(basicItem: HeartStoneRareResponseItem) {
-        this.basicItem = basicItem
-        binding.imgItemHearStone.contentDescription = basicItem.name
+    fun bind(rareResponseItem: HeartStoneRareResponseItem) {
+        this.basicItem = rareResponseItem
+
+        binding.tvNameItemHearStone.text = rareResponseItem.name
+        binding.tvRarityItemHearStone.text = rareResponseItem.rarity
+        binding.tvCostItemHearStone.text = rareResponseItem.cost.toString()
+        binding.tvFactionItemHearStone.text = rareResponseItem.faction
         binding.progressImageHeartStone.visibility = View.VISIBLE
 
         Picasso.get()
-            .load(basicItem.img)
+            .load(rareResponseItem.img)
             .error(R.drawable.ic_alert_circle)
             .into(binding.imgItemHearStone, object : Callback {
                 override fun onSuccess() {
