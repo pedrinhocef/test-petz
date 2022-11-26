@@ -1,21 +1,18 @@
 package com.challange.homecards.view.viewholder
 
 import android.view.View
-import android.widget.ImageView
-import android.widget.ProgressBar
 import androidx.recyclerview.widget.RecyclerView
 import com.challange.homecards.R
+import com.challange.homecards.databinding.ItemMainHeartStoneBinding
 import com.challange.network.model.BasicItem
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
 class HeartStoneViewHolder(
-    itemView: View,
+    private val binding: ItemMainHeartStoneBinding,
     private val clickListener: (BasicItem) -> Unit
-) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
-    private val imageView = itemView.findViewById<ImageView>(R.id.imgItemHearStone)
-    private val progress = itemView.findViewById<ProgressBar>(R.id.progressImageHeartStone)
     private lateinit var basicItem: BasicItem
 
     init {
@@ -23,20 +20,20 @@ class HeartStoneViewHolder(
     }
 
     fun bind(basicItem: BasicItem) {
-
-        imageView.contentDescription = basicItem.name
-        progress.visibility = View.VISIBLE
+        this.basicItem = basicItem
+        binding.imgItemHearStone.contentDescription = basicItem.name
+        binding.progressImageHeartStone.visibility = View.VISIBLE
 
         Picasso.get()
             .load(basicItem.img)
             .error(R.drawable.ic_alert_circle)
-            .into(imageView, object : Callback {
+            .into(binding.imgItemHearStone, object : Callback {
                 override fun onSuccess() {
-                    progress.visibility = View.GONE
+                    binding.progressImageHeartStone.visibility = View.GONE
                 }
 
                 override fun onError(e: Exception?) {
-                    progress.visibility = View.GONE
+                    binding.progressImageHeartStone.visibility = View.GONE
                 }
             })
     }
