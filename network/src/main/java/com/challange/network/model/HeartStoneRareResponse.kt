@@ -4,6 +4,6 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class MechanicsItem(
-	val name: String
+data class HeartStoneRareResponse(
+	val heartStoneRareResponse: List<HeartStoneRareResponseItem>? = arrayListOf()
 ) : Parcelable

@@ -6,14 +6,13 @@ import androidx.lifecycle.viewModelScope
 import com.challange.homecards.data.usecase.HeartStoneUseCase
 import com.challange.homecards.helper.BaseViewModel
 import com.challange.homecards.helper.Resource
-import com.challange.network.model.BasicItem
-import com.challange.network.model.HearthstoneResponse
+import com.challange.network.model.HeartStoneRareResponseItem
 import kotlinx.coroutines.launch
 
 class HeartStoneViewModel(private val useCase: HeartStoneUseCase): BaseViewModel() {
 
-    private val _heartStone = MutableLiveData<Resource<HearthstoneResponse>>()
-    val heartStone: LiveData<Resource<HearthstoneResponse>>
+    private val _heartStone = MutableLiveData<Resource<List<HeartStoneRareResponseItem>>>()
+    val heartStone: LiveData<Resource<List<HeartStoneRareResponseItem>>>
         get() = _heartStone
 
     private val _errorDataNull = MutableLiveData<Boolean>()
@@ -34,7 +33,7 @@ class HeartStoneViewModel(private val useCase: HeartStoneUseCase): BaseViewModel
 
     fun getHeartStoneCacheCache() = useCase.getCache()
 
-    fun addCache(basicItem: List<BasicItem>) = useCase.addCache(basicItem)
+    fun addCache(heartStoneRareItem: List<HeartStoneRareResponseItem>) = useCase.addCache(heartStoneRareItem)
 
     fun deleteCache() = useCase.deleteCache()
 

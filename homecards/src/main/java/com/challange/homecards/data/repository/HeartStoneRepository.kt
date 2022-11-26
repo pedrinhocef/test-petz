@@ -1,8 +1,8 @@
 package com.challange.homecards.data.repository
 
-import com.challange.network.model.HearthstoneResponse
+import com.challange.network.model.HeartStoneRareResponseItem
 import retrofit2.Response
 
 interface HeartStoneRepository {
-    suspend fun getHeartStoneResponse(): Response<HearthstoneResponse>
+    suspend fun getHeartStoneResponse(): Response<List<HeartStoneRareResponseItem>>
 }

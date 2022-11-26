@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 
 
 class HearthstoneService {
-    private val HEART_STONE_BASE_URL: String = "https://omgvamp-hearthstone-v1.p.rapidapi.com/"
+    private val HEART_STONE_BASE_URL: String = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/qualities/"
 
     private val gson: Gson by lazy { GsonBuilder().create() }
 

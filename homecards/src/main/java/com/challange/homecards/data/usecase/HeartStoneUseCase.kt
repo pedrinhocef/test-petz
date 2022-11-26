@@ -1,12 +1,11 @@
 package com.challange.homecards.data.usecase
 
-import com.challange.network.model.BasicItem
-import com.challange.network.model.HearthstoneResponse
+import com.challange.network.model.HeartStoneRareResponseItem
 import retrofit2.Response
 
 interface HeartStoneUseCase {
-    suspend fun getHeartStoneResponseUseCase(): Response<HearthstoneResponse>
-    fun addCache(basicItemList: List<BasicItem>)
+    suspend fun getHeartStoneResponseUseCase(): Response<List<HeartStoneRareResponseItem>>
+    fun addCache(heartStoneRareItem: List<HeartStoneRareResponseItem>)
     fun deleteCache()
-    fun getCache(): List<BasicItem>?
+    fun getCache(): List<HeartStoneRareResponseItem>?
 }

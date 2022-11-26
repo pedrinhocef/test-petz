@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.challange.homecards.databinding.ItemMainHeartStoneBinding
 import com.challange.homecards.view.diff.HeartStoneListDiffCallback
 import com.challange.homecards.view.viewholder.HeartStoneViewHolder
-import com.challange.network.model.BasicItem
+import com.challange.network.model.HeartStoneRareResponseItem
 
-class HeartStoneAdapter(private val clickListener: (BasicItem) -> Unit) : RecyclerView.Adapter<HeartStoneViewHolder>() {
+class HeartStoneAdapter(private val clickListener: (HeartStoneRareResponseItem) -> Unit) : RecyclerView.Adapter<HeartStoneViewHolder>() {
 
-    var basicItems = emptyList<BasicItem>()
+    var stoneRareResponseItems = emptyList<HeartStoneRareResponseItem>()
         set(value) {
             val result = DiffUtil.calculateDiff(
                 HeartStoneListDiffCallback(
@@ -30,9 +30,9 @@ class HeartStoneAdapter(private val clickListener: (BasicItem) -> Unit) : Recycl
     }
 
     override fun onBindViewHolder(holder: HeartStoneViewHolder, position: Int) {
-        holder.bind(basicItems[position])
+        holder.bind(stoneRareResponseItems[position])
     }
 
     override fun getItemCount(): Int =
-        basicItems.size
+        stoneRareResponseItems.size
 }

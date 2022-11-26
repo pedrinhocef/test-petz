@@ -12,7 +12,7 @@ import com.challange.homecards.helper.observeResource
 import com.challange.homecards.view.adapter.HeartStoneAdapter
 import com.challange.homecards.view.viewmodel.HeartStoneViewModel
 import com.challange.navigation.details.DetailFeatureNavigation
-import com.challange.network.model.BasicItem
+import com.challange.network.model.HeartStoneRareResponseItem
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HeartStoneActivity : AppCompatActivity() {
@@ -39,16 +39,16 @@ class HeartStoneActivity : AppCompatActivity() {
 
     private fun observerVMEvents() {
         viewModel.heartStone.observeResource(this,
-            onSuccess = {
-                populateHeartStone(it.basic)
-                viewModel.addCache(it.basic)
+            onSuccess = { heartStoneRareResponseItem ->
+                populateHeartStone(heartStoneRareResponseItem)
+                heartStoneRareResponseItem?.let { it -> viewModel.addCache(it) }
             },
             onLoading = {
                 showLoading()
             },
             onError = {
-                viewModel.getHeartStoneCacheCache()?.let { basicItem ->
-                    populateHeartStone(basicItem)
+                viewModel.getHeartStoneCacheCache()?.let { heartStoneRareResponseItem ->
+                    populateHeartStone(heartStoneRareResponseItem)
                     showSuccess()
                 }?.run {
                     showErrorMessage()
@@ -63,9 +63,11 @@ class HeartStoneActivity : AppCompatActivity() {
         }
     }
 
-    private fun populateHeartStone(it: List<BasicItem>) {
+    private fun populateHeartStone(it: List<HeartStoneRareResponseItem>) {
         showSuccess()
-        heartStoneAdapter.basicItems = it
+        it.let { heartStoneRareItem ->
+            heartStoneAdapter.stoneRareResponseItems = heartStoneRareItem
+        }
     }
 
     private fun showSuccess() {

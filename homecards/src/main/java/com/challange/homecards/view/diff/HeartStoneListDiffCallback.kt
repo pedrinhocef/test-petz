@@ -1,11 +1,11 @@
 package com.challange.homecards.view.diff
 
 import androidx.recyclerview.widget.DiffUtil
-import com.challange.network.model.BasicItem
+import com.challange.network.model.HeartStoneRareResponseItem
 
 class HeartStoneListDiffCallback constructor(
-    private val oldList: List<BasicItem>,
-    private val newList: List<BasicItem>
+    private val oldList: List<HeartStoneRareResponseItem>,
+    private val newList: List<HeartStoneRareResponseItem>
 ) : DiffUtil.Callback() {
     override fun getOldListSize(): Int =
         oldList.size
