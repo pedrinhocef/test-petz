@@ -4,4 +4,15 @@
     <string name="icon">banner de imagem</string>
     <string name="heart_activity">Rare Card List</string>
     <string name="detail_activity">Detail Card</string>
+
+    <string name="card_detail_name">Nome: %s</string>
+    <string name="card_detail_flavor">Flavor: %s</string>
+    <string name="card_detail_short_description">Short Description : %s</string>
+    <string name="card_detail_set">Set: %s</string>
+    <string name="card_detail_type">Type: %s</string>
+    <string name="card_detail_faction">Faction: %s</string>
+    <string name="card_detail_rarity">Rarity: %s</string>
+    <string name="card_detail_attack">Attack: %s</string>
+    <string name="card_detail_cost">Cost: %s</string>
+    <string name="card_detail_health">Health: %s</string>
 </resources>

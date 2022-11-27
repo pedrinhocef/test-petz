@@ -48,16 +48,15 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun bindingOfItems(heartStoneRareResponseItem: HeartStoneRareResponseItem) {
-        binding.tvDetailName.text = heartStoneRareResponseItem.name
-        binding.tvDetailFaction.text = heartStoneRareResponseItem.faction
-        binding.tvDetailFlavor.text = heartStoneRareResponseItem.flavor
-        binding.tvDetailHealth.text = heartStoneRareResponseItem.health.toString()
-        binding.tvDetailType.text = heartStoneRareResponseItem.type
-        binding.tvDetailAttack.text = heartStoneRareResponseItem.health.toString()
-        binding.tvDetailCost.text = heartStoneRareResponseItem.cost.toString()
-        binding.tvDetailRarity.text = heartStoneRareResponseItem.rarity
-        binding.tvDetailSet.text = heartStoneRareResponseItem.cardSet
-        binding.tvDetailShortDescription.text =
-            (Html.fromHtml(heartStoneRareResponseItem.text ?: "", Html.FROM_HTML_MODE_LEGACY))
+        binding.tvDetailName.text = getString(R.string.card_detail_name, heartStoneRareResponseItem.name)
+        binding.tvDetailFaction.text = getString(R.string.card_detail_faction, heartStoneRareResponseItem.faction)
+        binding.tvDetailFlavor.text = getString(R.string.card_detail_flavor, heartStoneRareResponseItem.flavor)
+        binding.tvDetailHealth.text = getString(R.string.card_detail_health, heartStoneRareResponseItem.health.toString())
+        binding.tvDetailType.text = getString(R.string.card_detail_type, heartStoneRareResponseItem.type)
+        binding.tvDetailAttack.text = getString(R.string.card_detail_attack, heartStoneRareResponseItem.health.toString())
+        binding.tvDetailCost.text = getString(R.string.card_detail_cost, heartStoneRareResponseItem.cost.toString())
+        binding.tvDetailRarity.text = getString(R.string.card_detail_rarity, heartStoneRareResponseItem.rarity)
+        binding.tvDetailSet.text = getString(R.string.card_detail_set, heartStoneRareResponseItem.cardSet)
+        binding.tvDetailShortDescription.text = getString(R.string.card_detail_short_description, Html.fromHtml(heartStoneRareResponseItem.text ?: "", Html.FROM_HTML_MODE_LEGACY))
     }
 }

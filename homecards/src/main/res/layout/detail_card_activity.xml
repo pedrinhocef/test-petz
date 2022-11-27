@@ -1,133 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivDetailCard"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_height="0dp">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDetailName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/ivDetailCard"
-        app:layout_constraintTop_toBottomOf="@+id/ivDetailCard"
-        tools:text="Name"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDetailCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDetailFlavor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/tvDetailName"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailName"
-        tools:text="Flavor"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/ivDetailCard"
+            app:layout_constraintTop_toBottomOf="@+id/ivDetailCard"
+            tools:text="Name" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDetailShortDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/tvDetailFlavor"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailFlavor"
-        tools:text="Short Description"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailFlavor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailName"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailName"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailName"
+            tools:text="Flavor" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDetailSet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/tvDetailShortDescription"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailShortDescription"
-        tools:text="Set"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailShortDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailFlavor"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailFlavor"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailFlavor"
+            tools:text="Short Description" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDetailType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/tvDetailSet"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailSet"
-        tools:text="Type"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailSet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailShortDescription"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailShortDescription"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailShortDescription"
+            tools:text="Set" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDetailFaction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/ivDetailCard"
-        app:layout_constraintTop_toBottomOf="@+id/ivDetailCard"
-        tools:text="Faction"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailSet"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailSet"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailSet"
+            tools:text="Type" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDetailRarity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvDetailFaction"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailFaction"
-        tools:text="Rarity"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailFaction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailType"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailType"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailType"
+            tools:text="Faction" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDetailAttack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvDetailRarity"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailRarity"
-        tools:text="Attack"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailRarity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailFaction"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailFaction"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailFaction"
+            tools:text="Rarity" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDetailCost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvDetailAttack"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailAttack"
-        tools:text="Cost"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailAttack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailRarity"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailRarity"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailRarity"
+            tools:text="Attack" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDetailHealth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvDetailCost"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailCost"
-        tools:text="Health"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailCost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailAttack"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailAttack"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailAttack"
+            tools:text="Cost" />
 
-    <ProgressBar
-        android:id="@+id/progressBarDetail"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        app:layout_constraintBottom_toBottomOf="@+id/ivDetailCard"
-        app:layout_constraintEnd_toEndOf="@+id/ivDetailCard"
-        app:layout_constraintStart_toStartOf="@+id/ivDetailCard"
-        app:layout_constraintTop_toTopOf="@+id/ivDetailCard" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailHealth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailCost"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailCost"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailCost"
+            tools:text="Health" />
+
+        <ProgressBar
+            android:id="@+id/progressBarDetail"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="@+id/ivDetailCard"
+            app:layout_constraintEnd_toEndOf="@+id/ivDetailCard"
+            app:layout_constraintStart_toStartOf="@+id/ivDetailCard"
+            app:layout_constraintTop_toTopOf="@+id/ivDetailCard" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
