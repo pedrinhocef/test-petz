@@ -40,7 +40,7 @@ class HeartStoneActivity : AppCompatActivity() {
     private fun observerVMEvents() {
         viewModel.heartStone.observeResource(this,
             onSuccess = { heartStoneRareResponseItem ->
-                populateHeartStone(heartStoneRareResponseItem)
+                populateHeartStone(viewModel.filteringListOnlyValidImages(heartStoneRareResponseItem))
                 heartStoneRareResponseItem.let { viewModel.addCache(it) }
             },
             onLoading = {
