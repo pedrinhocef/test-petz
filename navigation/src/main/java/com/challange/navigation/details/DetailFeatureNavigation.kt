@@ -7,14 +7,14 @@ import com.challange.network.model.HeartStoneRareResponseItem
 object DetailFeatureNavigation {
 
     private const val DETAIL_PACKAGE: String = "com.challange.homecards.view.ui"
-    private const val EXTRA_BASIC_ITEM: String = "basicItem"
+    const val EXTRA_RARE_ITEM: String = "basicItem"
 
     fun openDetailsFeatureNavigation(context: Context, heartStoneRareResponse: HeartStoneRareResponseItem) {
         IntentUtils.openFeatureIntent(
             context,
             "$DETAIL_PACKAGE.DetailsActivity"
         ) {
-            putExtra(EXTRA_BASIC_ITEM, heartStoneRareResponse)
+            putExtra(EXTRA_RARE_ITEM, heartStoneRareResponse)
         }
     }
 }

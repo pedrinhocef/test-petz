@@ -24,7 +24,7 @@ class HeartStoneViewModel(private val useCase: HeartStoneUseCase): BaseViewModel
             val response = useCase.getHeartStoneResponseUseCase()
 
             if (response.isSuccessful && response.code() == 200){
-                _heartStone.success(response.body())
+                _heartStone.success(response.body()?.let { filteringListOnlyValidImages(it) })
             } else {
                 _errorDataNull.value = true
             }
@@ -36,5 +36,11 @@ class HeartStoneViewModel(private val useCase: HeartStoneUseCase): BaseViewModel
     fun addCache(heartStoneRareItem: List<HeartStoneRareResponseItem>) = useCase.addCache(heartStoneRareItem)
 
     fun deleteCache() = useCase.deleteCache()
+
+    private fun filteringListOnlyValidImages(heartStoneRareResponseItem: List<HeartStoneRareResponseItem>): List<HeartStoneRareResponseItem> {
+        val predicateFilter: (HeartStoneRareResponseItem) -> Boolean =
+            { !it.img.isNullOrEmpty() }
+        return heartStoneRareResponseItem.filter(predicateFilter)
+    }
 
 }

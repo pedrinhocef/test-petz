@@ -40,8 +40,7 @@ class HeartStoneActivity : AppCompatActivity() {
     private fun observerVMEvents() {
         viewModel.heartStone.observeResource(this,
             onSuccess = { heartStoneRareResponseItem ->
-                val heartStoneRareResponseItems = filteringListOnlyValidImages(heartStoneRareResponseItem)
-                populateHeartStone(heartStoneRareResponseItems)
+                populateHeartStone(heartStoneRareResponseItem)
                 heartStoneRareResponseItem.let { viewModel.addCache(it) }
             },
             onLoading = {
@@ -62,12 +61,6 @@ class HeartStoneActivity : AppCompatActivity() {
                 showErrorMessage()
             }
         }
-    }
-
-    private fun filteringListOnlyValidImages(heartStoneRareResponseItem: List<HeartStoneRareResponseItem>): List<HeartStoneRareResponseItem> {
-        val predicateFilter: (HeartStoneRareResponseItem) -> Boolean =
-            { !it.img.isNullOrEmpty() }
-        return heartStoneRareResponseItem.filter(predicateFilter)
     }
 
     private fun populateHeartStone(it: List<HeartStoneRareResponseItem>) {

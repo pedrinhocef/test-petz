@@ -8,10 +8,6 @@
             android:exported="true"
             android:label="@string/heart_activity"
             android:launchMode="singleTop">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity
             android:name="com.challange.homecards.view.ui.DetailsActivity"
