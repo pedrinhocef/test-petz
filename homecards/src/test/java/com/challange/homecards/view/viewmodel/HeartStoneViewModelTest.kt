@@ -8,9 +8,8 @@ import com.challange.network.model.MechanicsItem
 import com.nhaarman.mockitokotlin2.doReturn
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.After
@@ -28,8 +27,6 @@ internal class HeartStoneViewModelTest {
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
-
-    private val testCoroutineDispatcher = TestCoroutineDispatcher()
     private var useCaseMock =  Mockito.mock(HeartStoneUseCaseImpl::class.java)
     private lateinit var viewModel : HeartStoneViewModel
 
@@ -42,45 +39,35 @@ internal class HeartStoneViewModelTest {
 
     @After
     fun tearDown() {
-        testCoroutineDispatcher.cleanupTestCoroutines()
         Dispatchers.resetMain()
     }
 
     @Test
-    fun `should return success when call get heart stone live data` () = testCoroutineDispatcher.runBlockingTest {
-        testCoroutineDispatcher.pauseDispatcher()
+    fun `should return success when call get heart stone live data` () = runTest {
 
         doReturn(mockResponseSuccess()).`when`(useCaseMock).getHeartStoneResponseUseCase()
 
         viewModel.getHeartStoneResponse()
 
-        testCoroutineDispatcher.resumeDispatcher()
-
         viewModel.heartStone.value.shouldBeEqualTo(Resource.success(listRareItems()))
     }
 
     @Test
-    fun `testing getProducts response null error`() = testCoroutineDispatcher.runBlockingTest {
-        testCoroutineDispatcher.pauseDispatcher()
+    fun `testing getProducts response null error`() = runTest {
 
         doReturn(mockResponseNull()).`when`(useCaseMock).getHeartStoneResponseUseCase()
 
         viewModel.getHeartStoneResponse()
 
-        testCoroutineDispatcher.resumeDispatcher()
-
         viewModel.errorDataNull.value.shouldBeEqualTo(null)
     }
 
     @Test(expected = MockitoException::class)
-    fun `testing getProducts response exception error`() = testCoroutineDispatcher.runBlockingTest {
-        testCoroutineDispatcher.pauseDispatcher()
+    fun `testing getProducts response exception error`() = runTest {
 
         Mockito.doThrow(IOException::class.java).`when`(useCaseMock).getHeartStoneResponseUseCase()
 
         viewModel.getHeartStoneResponse()
-
-        testCoroutineDispatcher.resumeDispatcher()
 
         viewModel.heartStone.value.shouldBeEqualTo(Resource.error<HeartStoneRareResponseItem>(IOException()))
     }
