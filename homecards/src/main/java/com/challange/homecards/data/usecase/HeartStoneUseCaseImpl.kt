@@ -2,7 +2,6 @@ package com.challange.homecards.data.usecase
 
 import com.challange.cache.homecards.repository.HomeCardsCacheRep
 import com.challange.homecards.data.repository.HeartStoneRepository
-import com.challange.network.model.HeartStoneRareResponse
 import com.challange.network.model.HeartStoneRareResponseItem
 import retrofit2.Response
 

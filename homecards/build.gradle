@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -61,13 +62,18 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
     implementation "com.google.android.material:material:$material_version"
-    implementation 'androidx.core:core:1.9.0'
+    implementation "androidx.core:core:$core_version"
+    implementation "io.coil-kt:coil:$kt_coil"
 
     testImplementation "androidx.arch.core:core-testing:$core_testing_version"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    testImplementation "org.amshove.kluent:kluent-android:$kluent_version"
 
     androidTestImplementation "androidx.test:core-ktx:$core_ktx_test_version"
 
     androidTestImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
+    androidTestImplementation "org.mockito:mockito-android:$mockito_version"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockito_kotlin_version"
 }
