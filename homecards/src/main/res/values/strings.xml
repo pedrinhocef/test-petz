@@ -2,4 +2,6 @@
     <string name="app_name">HearStone App</string>
     <string name="error">Ocorreu um erro. Tente novamente.</string>
     <string name="icon">banner de imagem</string>
+    <string name="heart_activity">Rare Card List</string>
+    <string name="detail_activity">Detail Card</string>
 </resources>
