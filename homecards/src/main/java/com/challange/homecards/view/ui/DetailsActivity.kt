@@ -1,6 +1,7 @@
 package com.challange.homecards.view.ui
 
 import android.os.Bundle
+import android.text.Html
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.challange.homecards.R
@@ -56,6 +57,7 @@ class DetailsActivity : AppCompatActivity() {
         binding.tvDetailCost.text = heartStoneRareResponseItem.cost.toString()
         binding.tvDetailRarity.text = heartStoneRareResponseItem.rarity
         binding.tvDetailSet.text = heartStoneRareResponseItem.cardSet
-        binding.tvDetailShortDescription.text = heartStoneRareResponseItem.text
+        binding.tvDetailShortDescription.text =
+            (Html.fromHtml(heartStoneRareResponseItem.text ?: "", Html.FROM_HTML_MODE_LEGACY))
     }
 }
