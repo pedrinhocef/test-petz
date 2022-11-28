@@ -26,4 +26,10 @@ class HeartStoneUseCaseImpl(
         return cache.getCardsFromCache()
     }
 
+    override fun filterList(heartStoneRareResponseItem: List<HeartStoneRareResponseItem>): List<HeartStoneRareResponseItem> {
+        val predicateFilter: (HeartStoneRareResponseItem) -> Boolean =
+            { !it.img.isNullOrEmpty() }
+        return heartStoneRareResponseItem.filter(predicateFilter)
+    }
+
 }

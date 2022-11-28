@@ -37,10 +37,6 @@ class HeartStoneViewModel(private val useCase: HeartStoneUseCase): BaseViewModel
 
     fun deleteCache() = useCase.deleteCache()
 
-    fun filteringListOnlyValidImages(heartStoneRareResponseItem: List<HeartStoneRareResponseItem>): List<HeartStoneRareResponseItem> {
-        val predicateFilter: (HeartStoneRareResponseItem) -> Boolean =
-            { !it.img.isNullOrEmpty() }
-        return heartStoneRareResponseItem.filter(predicateFilter)
-    }
+    fun filteringListOnlyValidImages(heartStoneRareResponseItem: List<HeartStoneRareResponseItem>) = useCase.filterList(heartStoneRareResponseItem)
 
 }

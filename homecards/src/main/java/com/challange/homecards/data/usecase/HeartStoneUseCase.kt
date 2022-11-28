@@ -8,4 +8,5 @@ interface HeartStoneUseCase {
     fun addCache(heartStoneRareItem: List<HeartStoneRareResponseItem>)
     fun deleteCache()
     fun getCache(): List<HeartStoneRareResponseItem>?
+    fun filterList(heartStoneRareResponseItem: List<HeartStoneRareResponseItem>): List<HeartStoneRareResponseItem>
 }
