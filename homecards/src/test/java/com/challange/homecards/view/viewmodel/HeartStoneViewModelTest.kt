@@ -53,7 +53,7 @@ internal class HeartStoneViewModelTest {
     }
 
     @Test
-    fun `testing getProducts response null error`() = runTest {
+    fun `should return null when call get heart and response is null`() = runTest {
 
         doReturn(mockResponseNull()).`when`(useCaseMock).getHeartStoneResponseUseCase()
 
@@ -63,7 +63,7 @@ internal class HeartStoneViewModelTest {
     }
 
     @Test(expected = MockitoException::class)
-    fun `testing getProducts response exception error`() = runTest {
+    fun `should return IOException when call get heart`() = runTest {
 
         Mockito.doThrow(IOException::class.java).`when`(useCaseMock).getHeartStoneResponseUseCase()
 
