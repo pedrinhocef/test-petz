@@ -3,6 +3,7 @@ package com.challange.homecards.view.viewmodel
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.challange.homecards.data.usecase.HeartStoneUseCaseImpl
 import com.challange.homecards.helper.Resource
+import com.challange.homecards.view.viewmodel.utils.getOrAwaitValue
 import com.challange.network.model.HeartStoneRareResponseItem
 import com.nhaarman.mockitokotlin2.doReturn
 import io.mockk.coEvery
@@ -55,7 +56,7 @@ internal class HeartStoneViewModelTest {
 
         viewModel.getHeartStoneResponse()
 
-        viewModel.heartStone.value.shouldBeEqualTo(Resource.success(listRareItems))
+        viewModel.heartStone.getOrAwaitValue().shouldBeEqualTo(Resource.success(listRareItems))
     }
 
     @Test
@@ -116,7 +117,7 @@ internal class HeartStoneViewModelTest {
 
         viewModel.getHeartStoneResponse()
 
-        viewModel.heartStone.value.shouldBeEqualTo(Resource.error<HeartStoneRareResponseItem>(IOException()))
+        viewModel.heartStone.getOrAwaitValue().shouldBeEqualTo(Resource.error<HeartStoneRareResponseItem>(IOException()))
     }
 
     private fun mockResponseSuccess() = Response.success(listRareItems)

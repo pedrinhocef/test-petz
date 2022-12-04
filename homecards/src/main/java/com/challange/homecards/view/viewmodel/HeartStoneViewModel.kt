@@ -9,7 +9,7 @@ import com.challange.homecards.helper.Resource
 import com.challange.network.model.HeartStoneRareResponseItem
 import kotlinx.coroutines.launch
 
-class HeartStoneViewModel(private val useCase: HeartStoneUseCase): BaseViewModel() {
+internal class HeartStoneViewModel(private val useCase: HeartStoneUseCase): BaseViewModel() {
 
     private val _heartStone = MutableLiveData<Resource<List<HeartStoneRareResponseItem>>>()
     val heartStone: LiveData<Resource<List<HeartStoneRareResponseItem>>>
