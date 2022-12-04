@@ -3,6 +3,7 @@ package com.challange.homecards.view.viewmodel
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.challange.homecards.data.usecase.HeartStoneUseCaseImpl
 import com.challange.homecards.helper.Resource
+import com.challange.homecards.view.viewmodel.utils.MainDispatcherRule
 import com.challange.homecards.view.viewmodel.utils.getOrAwaitValue
 import com.challange.network.model.HeartStoneRareResponseItem
 import com.nhaarman.mockitokotlin2.doReturn
@@ -10,15 +11,10 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
 import okhttp3.ResponseBody
 import org.amshove.kluent.shouldBeEqualTo
-import org.junit.After
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mockito
@@ -32,22 +28,16 @@ internal class HeartStoneViewModelTest {
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
+
+    @get:Rule
+    val mainDispatcherRule = MainDispatcherRule()
+
     private var useCaseMockK = mockk<HeartStoneUseCaseImpl>()
     private var useCaseMock =  Mockito.mock(HeartStoneUseCaseImpl::class.java)
-    private lateinit var viewModel : HeartStoneViewModel
+    private var viewModel = HeartStoneViewModel(useCaseMockK)
     private var listRareItems = mockk<List<HeartStoneRareResponseItem>>()
 
 
-    @Before
-    fun setup() {
-        Dispatchers.setMain(Dispatchers.Unconfined)
-        viewModel = HeartStoneViewModel(useCaseMockK)
-    }
-
-    @After
-    fun tearDown() {
-        Dispatchers.resetMain()
-    }
 
     @Test
     fun `should return success when call get heart stone live data` () = runTest {
